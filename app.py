@@ -5,13 +5,13 @@ import os
 import pytz
 app = Flask(__name__)
 
-# Configuración de conexión (pon aquí los datos de Railway)
+# Configuración de conexión a la base de datos MySQL en Railway
 db_config = {
-    'host':     'shinkansen.proxy.rlwy.net',        # ejemplo: containers-us-west-89.railway.app
+    'host':     'metro.proxy.rlwy.net',        
     'user':     'root',
-    'password': 'rEoFMvdjfXZtcnCmkVGGFbvEzsQgMUIm',
+    'password': 'gJbctkiVlTpCHtgGRbNbBbvMydTiCQMh',
     'database': 'railway',
-    'port': 30825                    # o el que te aparezca en Railway mysql://root:rEoFMvdjfXZtcnCmkVGGFbvEzsQgMUIm@shinkansen.proxy.rlwy.net:30825/railway
+    'port': 30825               
 }
 
 # Ruta base para verificar que funciona
@@ -81,4 +81,6 @@ def obtener_lecturas():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)      
+    
+    
     
