@@ -11,7 +11,7 @@ db_config = {
     'user':     'root',
     'password': 'gJbctkiVlTpCHtgGRbNbBbvMydTiCQMh',
     'database': 'railway',
-    'port': 30825               
+    'port': 35484               
 }
 
 # Ruta base para verificar que funciona
