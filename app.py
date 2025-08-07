@@ -61,22 +61,7 @@ def recibir_lectura():
         return jsonify({"error": str(e)}), 500
 
 
-@app.route('/lecturas', methods=['GET'])
-def obtener_lecturas():
-    try:
-        conn = mysql.connector.connect(**db_config)
-        cursor = conn.cursor(dictionary=True)
 
-        cursor.execute("SELECT * FROM lecturas2 ORDER BY fecha DESC LIMIT 50")
-        resultados = cursor.fetchall()
-
-        cursor.close()
-        conn.close()
-
-        return render_template('lecturas.html', lecturas=resultados)
-
-    except Exception as e:
-        return f"<h1>Error</h1><p>{str(e)}</p>", 500
  
     
     
