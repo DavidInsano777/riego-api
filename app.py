@@ -77,8 +77,8 @@ def obtener_lecturas():
 
     except Exception as e:
         return f"<h1>Error</h1><p>{str(e)}</p>", 500
- 
-    
+
+
 if __name__ == '__main__':
     app.run(debug=True)
     
