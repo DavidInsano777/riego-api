@@ -14,10 +14,10 @@ try:
     cursor = conn.cursor()
 
     cursor.execute("""
-        CREATE TABLE lecturas3 (
+        CREATE TABLE lecturas2 (
             id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
             humedad INT NOT NULL,
-            riego TINYINT(1) NOT NULL,
+            riego VARCHAR(20),
             fecha DATETIME
         );
     """)
