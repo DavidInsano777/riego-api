@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Lecturas de Humedad</title>
+    <title>📊 Lecturas de Humedad</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
@@ -87,29 +87,10 @@
             font-size: 0.9em;
             color: #888;
         }
-
-        .btn-delete {
-            background-color: #f44336;
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9em;
-        }
-
-        .btn-delete i {
-            margin-right: 5px;
-        }
-
-        .btn-delete:hover {
-            opacity: 0.8;
-            transform: translateY(-2px);
-        }
     </style>
 </head>
 <body>
-    <h1>Ultimas Lecturas del Sistema de Riego</h1>
+    <h1>📊 Últimas Lecturas del Sistema de Riego</h1>
 
     <div class="status-cards">
         {% if lecturas and lecturas[0] %}
@@ -120,7 +101,7 @@
         </div>
         
         <div class="card">
-            <h3>Estado de Riego</h3>
+            <h3>Conexion del Sistema
             <div class="value {% if lecturas[0].riego %}irrigation-true{% else %}irrigation-false{% endif %}">
                 {% if lecturas[0].riego %}
                     <i class="fas fa-check-circle"></i> ACTIVO
@@ -146,7 +127,6 @@
                 <th>Humedad</th>
                 <th>Riego</th>
                 <th>Fecha</th>
-                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -156,36 +136,13 @@
                 <td>{{ lectura.humedad }}</td>
                 <td>{{ lectura.riego }}</td>
                 <td>{{ lectura.fecha }}</td>
-                <td>
-                    <button class="btn-delete" onclick="eliminarLectura('{{ lectura.id }}')">
-                        <i class="fas fa-trash-alt"></i> Eliminar
-                    </button>
-                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 
-    <script>
-        function eliminarLectura(id) {
-            if (confirm(`¿Estás seguro de que quieres eliminar la lectura con ID ${id}?`)) {
-                fetch(`/lectura/${id}`, {
-                    method: 'DELETE'
-                })
-                .then(response => {
-                    if (response.ok) {
-                        alert('Lectura eliminada correctamente');
-                        location.reload();
-                    } else {
-                        alert('Error al eliminar la lectura');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error al conectar con el servidor');
-                });
-            }
-        }
-    </script>
+    <div class="footer">
+        Renderizado por Flask | Proyecto de riego automatizado 🌱
+    </div>
 </body>
 </html>
