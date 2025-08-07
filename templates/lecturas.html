@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>📊 Lecturas de Humedad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>📊 Últimas Lecturas del Sistema de Riego</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Humedad</th>
+                <th>Riego</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lectura in lecturas %}
+            <tr>
+                <td>{{ lectura.id }}</td>
+                <td>{{ lectura.humedad }}</td>
+                <td>{{ lectura.riego }}</td>
+                <td>{{ lectura.fecha }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="footer">Renderizado por Flask | Proyecto de riego automatizado 🌱</div>
+</body>
+</html>

@@ -1,3 +1,4 @@
+from flask import render_template
 from flask import Flask, request, jsonify
 from datetime import datetime, timedelta
 import mysql.connector
@@ -17,7 +18,7 @@ db_config = {
 # Ruta base para verificar que funciona
 @app.route('/')
 def home():
-    return '✅ API de riego conectada a Railway'
+    return 'API de riego conectada a Railway'
 
 # Ruta para recibir y guardar lecturas
 @app.route('/lectura', methods=['POST'])
@@ -49,7 +50,7 @@ def recibir_lectura():
         conn.close()
 
         return jsonify({
-            "message": "✅ Lectura registrada exitosamente",
+            "message": "Lectura registrada exitosamente",
             "registro": {
                 "humedad": data['humedad'],
                 "riego": data['riego'],

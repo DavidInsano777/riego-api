@@ -1,12 +1,11 @@
 import mysql.connector
 
-# Configuración (la misma que usas en app.py)
 db_config = {
-    'host':     'metro.proxy.rlwy.net',        # ejemplo: containers-us-west-89.railway.app
+    'host':     'metro.proxy.rlwy.net',        
     'user':     'root',
     'password': 'gJbctkiVlTpCHtgGRbNbBbvMydTiCQMh',
     'database': 'railway',
-    'port': 35484                    # o el que aparezca en Railway mysql://root:rEoFMvdjfXZtcnCmkVGGFbvEzsQgMUIm@shinkansen.proxy.rlwy.net:30825/railway
+    'port': 35484                    
 }
 
 # Conexión y creación de tabla
@@ -24,7 +23,7 @@ try:
     """)
 
     conn.commit()
-    print("✅ Tabla creada correctamente.")
+    print("Tabla creada correctamente")
 
 except Exception as e:
     print("❌ Error:", e)
