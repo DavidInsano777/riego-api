@@ -288,8 +288,8 @@
                         <td>{{ lectura.id }}</td>
                         <td>{{ lectura.humedad }}%</td>
 
-                        <td class="{% if lectura.riego %}riego-true{% else %}riego-false{% endif %}">
-                            {% if lectura.riego %}
+                        <td class="{% if lectura.riego ==1 %}riego-true{% else %}riego-false{% endif %}">
+                            {% if lectura.riego == 1 %}
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="#2e7d32" style="vertical-align: middle;">
                                     <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
                                 </svg> Activado
