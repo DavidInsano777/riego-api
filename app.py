@@ -1,5 +1,4 @@
-from flask import render_template
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from datetime import datetime, timedelta
 import mysql.connector
 import os
@@ -61,6 +60,7 @@ def recibir_lectura():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+
 @app.route('/lecturas', methods=['GET'])
 def obtener_lecturas():
     try:
@@ -73,15 +73,11 @@ def obtener_lecturas():
         cursor.close()
         conn.close()
 
-        return jsonify(resultados), 200
+        return render_template('lecturas.html', lecturas=resultados)
 
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)      
+        return f"<h1>Error</h1><p>{str(e)}</p>", 500
+ 
     
     
     
