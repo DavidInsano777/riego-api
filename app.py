@@ -77,10 +77,26 @@ def obtener_lecturas():
 
     except Exception as e:
         return f"<h1>Error</h1><p>{str(e)}</p>", 500
+    
+@app.route('/lectura/<int:id>', methods=['DELETE'])
+def eliminar_lectura(id):
+    try:
+        conn = mysql.connector.connect(**db_config)
+        cursor = conn.cursor()
+
+        cursor.execute("DELETE FROM lecturas2 WHERE id = %s", (id,))
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+
+        return jsonify({"message": f"Lectura con ID {id} eliminada correctamente"}), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-    
     
